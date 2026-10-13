@@ -1,0 +1,23 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python Bytecode
+__pycache__/
+*.pyc
+
+# Environment Files (Credentials & Keys)
+.env
+
+# Database Files
+*.db
+*.sqlite3
+
+# IDE / Editor Files
+.idea/
+.vscode/
+.DS_Store
+
+# Alembic cache
+alembic/__pycache__/
