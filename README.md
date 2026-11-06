@@ -118,4 +118,3 @@ SubscriptionTracker/
 - **Backend:** Python 3.13+, FastAPI, Pydantic v2, PyJWT / Python-Jose, Passlib (bcrypt)
 - **Database & ORM:** MySQL, SQLAlchemy 2.0, Alembic
 - **Frontend:** Jinja2, HTML5, Bootstrap 5 / Tailwind CSS, Vanilla JS
-- **Deployment:** Render
