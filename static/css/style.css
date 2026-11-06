@@ -1,0 +1,20 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-urgent {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.badge-upcoming {
+    background-color: #fd7e14;
+    color: #ffffff;
+}
+
+.badge-normal {
+    background-color: #198754;
+    color: #ffffff;
+}

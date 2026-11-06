@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Subscription{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h3 class="mb-4">Edit Subscription</h3>
+
+                <div id="alert-box" class="alert alert-danger d-none"></div>
+
+                <form id="edit-subscription-form" data-id="{{ subscription.id }}">
+                    <div class="mb-3">
+                        <label class="form-label">Service Name</label>
+                        <input type="text" id="service_name" class="form-control" value="{{ subscription.service_name }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        <input type="number" step="0.01" id="price" class="form-control" value="{{ subscription.price }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Billing Cycle</label>
+                        <select id="billing_cycle" class="form-select">
+                            <option value="Monthly" {% if subscription.billing_cycle.value == 'Monthly' %}selected{% endif %}>Monthly</option>
+                            <option value="Yearly" {% if subscription.billing_cycle.value == 'Yearly' %}selected{% endif %}>Yearly</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Next Billing Date</label>
+                        <input type="date" id="next_billing_date" class="form-control" value="{{ subscription.next_billing_date }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select id="category" class="form-select">
+                            {% for cat in ['Entertainment', 'Infrastructure', 'Fitness', 'Software', 'Utilities', 'Other'] %}
+                            <option value="{{ cat }}" {% if subscription.category.value == cat %}selected{% endif %}>{{ cat }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select id="status" class="form-select">
+                            {% for stat in ['Active', 'Cancelled', 'Trial'] %}
+                            <option value="{{ stat }}" {% if subscription.status.value == stat %}selected{% endif %}>{{ stat }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" id="auto_renew" class="form-check-input" {% if subscription.auto_renew %}checked{% endif %}>
+                        <label class="form-check-label" for="auto_renew">Auto Renew</label>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-success">Update Subscription</button>
+                        <a href="/subscriptions/manage-page" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/subscriptions.js"></script>
+{% endblock %}
